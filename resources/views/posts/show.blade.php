@@ -7,7 +7,9 @@
 </head>
 <body>
 <a href="{{route('posts.index')}}">Go to Index Page</a>
-<p>Post with ID = {{$postId}}</p>
 
+<h3>{{$post->title}}</h3>
+<p>{{$post->content}}</p>
+<a href="{{route('posts.edit', $post->id)}}">Edit</a>
 </body>
 </html>
