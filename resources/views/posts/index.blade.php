@@ -8,9 +8,8 @@
 <body>
 <div> <a href="{{route('posts.create')}}">Go to Create Page</a> </div>
 @foreach($allPosts as $onePost)
-    <a href="{{route('posts.show', $onePost->id)}}">
-        <h3{{$onePost->title}}</h3></a>
-        <p>{{$onePost->content}}</p>
+    <a href="{{route('posts.show', $onePost->id)}}"><h3{{$onePost->title}}</h3></a>
+                 <p>{{$onePost->content}}</p>
 
     <form action="{{route('posts.destroy', $onePost->id)}}" method="post">
         @csrf
