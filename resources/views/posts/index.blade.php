@@ -6,12 +6,18 @@
     <title>All posts</title>
 </head>
 <body>
-<div> <a href="{{route('posts.create')}}">Go to Create Page</a> </div>
-@foreach($allPosts as $onePost)
-    <a href="{{route('posts.show', $onePost->id)}}"><h3{{$onePost->title}}</h3></a>
-                 <p>{{$onePost->content}}</p>
+<a href="{{route('posts.index')}}">All Posts</a>
+@foreach($categories as $cat)
+    <a href="{{route('posts.category',$cat->id)}}">{{$cat->name}}</a>
+@endforeach
+<br>
+<a href="{{route('posts.create')}}">Go to Create Page</a>
 
-    <form action="{{route('posts.destroy', $onePost->id)}}" method="post">
+
+@foreach($posts as $post)
+    <a href="{{route('posts.show', $post->id)}}"><h3> {{$post->title}}</h3></a>
+    <p>{{$post->content}}</p>
+    <form action="{{route('posts.destroy', $post->id)}}" method="post">
         @csrf
         @method('DELETE')
         <button type="submit">Delete</button>
